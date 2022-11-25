@@ -5,10 +5,10 @@ from os import path
 def get_words():
     words = []
 
-    files = ["alfa.klar.txt", "beta.klar.txt", "omikron.klar.txt"]
+    files = ["alfa-klar.txt",  "delta-sarah-ismael.txt",  "eta-emmie.txt",   "instruktioner.txt",  "kappa-klar.txt",   "my-klar.txt",  "omikron-klar.txt",  "theta-magda.txt", "beta-klar.txt",  "epsilon-klar.txt",        "gamma-klar.txt",  "iota-elias.txt",     "lambda-klar.txt",  "ny-klar.txt",  "sigma-klar.txt", "zeta-magda.txt"]
 
     for file in files:
-        with open(path.join("data", file), "r") as f:
+        with open(path.join("songs", file), "r") as f:
             for line in f:
                 if line.startswith("##"):
                     continue
@@ -25,6 +25,7 @@ def build_matrix(words):
     word_count = len(unique_sorted_words)
 
     print(unique_sorted_words)
+    print(word_count)
 
     reverse_word_index_lookup = {word: i for i, word in enumerate(unique_sorted_words)}
     occurance_matrix = np.zeros((word_count, word_count))
@@ -43,9 +44,19 @@ def build_matrix(words):
         for row in range(word_count):
             prob_matrix[row, col] = occurance_matrix[row, col] / col_sum
 
+    with open("probability_matrix.bin", "wb+") as f:
+        np.save(f, prob_matrix)
+
     return prob_matrix
+
+def get_matrix(words):
+    if path.exists("probability_matrix.bin"):
+        with open("probability_matrix.bin", "rb") as f:
+            return np.load(f)
+    else:
+        return build_matrix(words)
 
 if __name__ == "__main__":
     words = get_words()
-    mat = build_matrix(words)
+    mat = get_matrix(words)
     print(mat)
