@@ -2,8 +2,6 @@ import numpy as np
 from os import path
 
 
-allowed_chars = "abcdefghijklmnopqrstuvwxyzåäö "
-
 def get_words():
     words = []
 
@@ -16,7 +14,7 @@ def get_words():
                     continue
 
                 # Only keep the allowed characters
-                cleaned_line = "".join([c for c in line.strip().lower() if c in allowed_chars])
+                cleaned_line = "".join([c for c in line.strip().lower() if c.isalpha() or c == " "])
 
                 words.extend(cleaned_line.split())
 
