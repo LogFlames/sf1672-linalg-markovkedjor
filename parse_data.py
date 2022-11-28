@@ -5,10 +5,10 @@ from os import path
 def get_words():
     words = []
 
-    files = ["alfa-klar.txt",  "delta-sarah-ismael.txt",  "eta-emmie.txt",   "instruktioner.txt",  "kappa-klar.txt",   "my-klar.txt",  "omikron-klar.txt",  "theta-magda.txt", "beta-klar.txt",  "epsilon-klar.txt",        "gamma-klar.txt",  "iota-elias.txt",     "lambda-klar.txt",  "ny-klar.txt",  "sigma-klar.txt", "zeta-magda.txt"]
+    files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "_theta.txt", "delta.txt", "eta.txt", "_iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
 
     for file in files:
-        with open(path.join("songs", file), "r") as f:
+        with open(path.join("data", file), "r") as f:
             for line in f:
                 if line.startswith("##"):
                     continue
