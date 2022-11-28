@@ -1,0 +1,208 @@
+## iota
+
+## Système International
+## Melodi: Studentsången
+Watt kilogram meter Weber sekund
+Ohm meter Telsa Amper Radianer
+Candella Sievert Newton sekund
+Ohm ampere meter Lux deciBel
+grader Celsius Watt per kvadrat meter
+Joule per kilogram Henry Volt Colomb
+kilogram per kubik meter mol
+meter per sekund kvadrat meter per sekund i kvadrat farad fakultet! slutslutslut
+
+## Integralkalkylens fader
+## Melodi: Sveriges fana
+Integralkalkylens fader,
+G W Leibniz hette han.
+Han blev trött på att skriva rader
+av plustecken efter varann.
+
+Så han tänkte:
+"Das Wort Summe,
+es beginnt ja mit ein S".
+Och han sade,
+och han gjorde
+integrationssymbolen av sitt S.
+
+Integralkalkylens fader
+fick idén för länge se'n.
+Den elfte uti november
+sextonhudra-sjuttifem.
+Se'n det året,
+se'n den dagen,
+vi skriver det tecknet så.
+Och vi räknar
+och kalkylerar,
+integralens tecken kan en lita på.
+
+Och idag vi tecknet hylla.
+Det löser alla problem.
+Det lyckas vår fritid fylla
+med dx och med dt:n.
+Ja, må det leva.
+Ja, må det leva,
+i många hundrade år.
+Så att våra barn
+och våra barnbarn
+integralens tecken lära får. slutslutslut
+
+## GG-visan
+## Melodi: Jag är ett litet ylle
+Jag heter Göran Grimvall, Watt pdV Vdp.
+Med världens bästa infall, Watt pdV Vdp.
+Jag lär ut termodynamik
+och har problem i Ny Teknik.
+Grimvall, Grimvall,
+Grimvall på dig, Grimvall-freak.
+
+I julas ringde Platen, Watt pdV Vdp.
+Precis efter julmaten, Watt pdV Vdp.
+Hur kunde han störa då, den token,
+jag tittade ju på Djungelboken.
+Grimvall, Grimvall,
+Grimvall på dig, Grimvall-snoken.
+
+Jag var student på Chalmers, Watt pdV Vdp.
+Det här blir blott en halv vers, Watt pdV Vdp.
+
+Jag satt i kommissionen, Watt pdV Vdp.
+För ubåtsinvasionen, Watt pdV Vdp.
+Jag springer efter skärmar när
+jag inte plockar svamp och bär.
+
+Grimvall, Grimvall,
+oj... nu sitter Grimvall där! slutslutslut
+
+## Öl sex
+## Melodi: Med en enkel tulipan
+En liten enkel integral,
+uti ett Vektor III-tal.
+Ni har besväret,
+ni har besväret, att derivera.
+
+Först tar en Stokes' sats däruppå,
+så blir det så enkelt så.
+Att integralen,
+att integralen, evaluera.
+
+Och rotationen den integreras
+sen över ytan utav en boll.
+Och koordinaterna transformeras
+så integranden blir bara noll.
+
+En liten enkel integral,
+uti ett Vektor III-tal.
+Kan va' så jävlig
+att en ej hinner med något mera. slutslutslut
+
+## The BASIC song
+## Melodi: Mors lilla Olle
+tio LET oss nu fatta i våra glas
+tjugo INPUT en klunk utav det som där has
+trettio IF du fått nog THEN till femtio min vän
+fyrtio ELSE GOTO-baka till tio igen
+femtio END slutslutslut
+
+## Mors lilla dator
+## Melodi: Mors lilla Olle
+Mors lilla dator åt skogen gick,
+mitt i programmet sade det klick.
+Svart bidde skärmen och minnet försvann,
+den informationen kan ingen få fram.
+
+Brummeli brum vad brummar där?
+Det sprakar och gnistrar, ett jordfel det är!!
+Blixtar blå från burken det slå,
+synd att jag här nu ensam stå.
+
+Hyscheli hysch vad prasslar här?
+Fram väller pappret ur printern där!
+Den har fått nippran av tecken så små,
+jag tror att jag snart hemåt skall gå.
+
+## Tentamenssång
+## Melodi: Stockholmsmelodi
+Se hur hela Teknis går i vånda.
+Snart så kommer tentaperiod.
+Mek på fredag sedan Funk på måndag.
+Det är så att en kan gråta blod.
+
+Vad har jag gjort hela långa våren,
+när jag skulle pluggat och stått i.
+Jag har bara druckit öl på kåren,
+men det kan en inte tenta i.
+
+Se så många stackars teknologer.
+Transpirerar i en kvalmig sal.
+Grubblar planlöst över svåra frågor.
+Suckar, deppar åt en massa tal.
+
+Skriver formler, söker kombinera,
+för att få ihop en ekvation.
+Sedan kan de ilsket konstatera,
+att de ej fått rätt på dimension. slutslutslut
+
+## ODE till en husvagn
+## Melodi: Husvagn
+Vi har ägnat våren åt en kurs i mekanik,
+prickar, streck och pilar och en massa dynamik.
+Vi har haft svårt att fatta vad en svängning innebär
+men äntligen har vi förstått vad Newtons lagar lär...
+
+En ska ha husvagn, som sitter fastspänd i en båt.
+En ska ha husvagn, som sedan sjunker och blir våt.
+En ska ha husvagn, som först är odämpad och fri.
+En ska ha husvagn, nu så fattar vi!
+
+En tänker sig en vagn med massan m och så en fjäder
+som står på däcket på en båt som seglar i hårt väder.
+När båten gungar skapas det en svängningsekvation,
+och vattnet som sen strömmar in ger stark viskös friktion.
+
+En ska ha husvagn, då kommer en att räkna rätt.
+En ska ha husvagn, för då kan resten inses lätt.
+En ska ha husvagn, det är ett bra svängningssystem.
+En ska ha husvagn i sina problem!
+###################################################################
+m ẍ + c ẋ + k x är m g
+ẋ är A ωₙ cosωₙ t
+τ är lika med 2π genom ωₙ,
+där ωₙ är roten ur k genom m.
+
+En ska ha husvagn, det är en bild som är konkret.
+En ska ha husvagn, men för en hög viskositet
+ska man ha honung, det ger ett zeta som är högt.
+En ska ha honung, för det är kladdigt, mjukt och sött! slutslutslut
+
+## Matlab
+## Melodi: Husvagn
+Jag har prövat nästan allt som finns att pröva på:
+Kulram, fingrar, räknesticka, tärning eller så.
+Jag har kalkylerat på de konstigaste sätt
+men nu så har jag kommit på hur en ska räkna rätt.
+
+En ska ha MATLAB, då är kalkylen redan klar.
+En ska ha MATLAB, det har jag sett att andra har.
+En ska ha MATLAB, det är min livsfilosofi.
+En ska ha MATLAB, för då blir en fri.
+
+I många år så var jag inte alls så särskilt lärd.
+Jag visste ej vad som vänta’ mig i denna stora värld.
+Men sedan jag till NADA kom, och ända sedan dess
+så har jag funnit livets stora lyxdelikatess.
+
+En ska ha MATLAB, så att en slipper tänka alls.
+En ska ha MATLAB, ja, då går allting som en vals.
+En ska ha MATLAB, det bygger på nån slags logik.
+En ska ha MATLAB, för då blir en rik.
+
+fem minuter mekanik, fem minuter statfys,
+fem minuter kvantfysik, fem minuter analys,
+fem minuter fråga propp, fem minuter kolla opp,
+fem minuter tänka själv och sedan tar det stopp.
+
+En ska ha MATLAB, och datasalens friska luft.
+En ska ha MATLAB, det tycker studenterna är tufft.
+En ska ha MATLAB, när Ryssen kommer med sitt MIG.
+En ska ha MATLAB, då vinner en i krig.
