@@ -23,7 +23,8 @@ def main():
     current_word_vector = np.zeros(len(unique_sorted_words))
     current_word_vector[unique_sorted_words.index(start_word)] = 1
 
-    i = 0
+    word_count = 0
+    line_number = 0
     while True:
         next_word_index = get_next_word(current_word_vector, probability_matrix)
 
@@ -31,8 +32,11 @@ def main():
             break
 
         print(unique_sorted_words[next_word_index], end = " ")
-        i += 1
-        if i % 10 == 0:
+        word_count += 1
+        if word_count % 10 == 0:
+            line_number += 1
+            if line_number % 4 == 0:
+                print()
             print()
 
         current_word_vector = np.zeros(len(unique_sorted_words))
