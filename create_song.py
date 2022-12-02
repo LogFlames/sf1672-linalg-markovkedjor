@@ -25,6 +25,8 @@ def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllab
 def generate_song(start_word, melody):
     if start_word == "":
         return
+
+    melody = melody[:]
         
     words = get_words()
 
