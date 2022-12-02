@@ -18,6 +18,7 @@ def get_words():
 
                 words.extend(cleaned_line.split())
 
+    words = list(filter(lambda x: x != "slutslutslut", words))
     return words
 
 def build_matrix(words):
@@ -41,8 +42,7 @@ def build_matrix(words):
         if col_sum == 0:
             continue
 
-        for row in range(word_count):
-            prob_matrix[row, col] = occurance_matrix[row, col] / col_sum
+        prob_matrix[:,col] = occurance_matrix[:,col] / col_sum
 
     with open("probability_matrix.bin", "wb+") as f:
         np.save(f, prob_matrix)
