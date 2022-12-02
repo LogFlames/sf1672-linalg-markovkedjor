@@ -1,6 +1,7 @@
 import numpy as np
 from parse_data import get_words, get_matrix
 from word import Word
+from melodies import MELODIES
 
 
 def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables):
@@ -62,8 +63,19 @@ def main():
     while (start_word := input("What word do you want to start the song on?: ").lower()) not in unique_sorted_words:
         print(f"The word '{start_word}' does not occur in the dataset, please try again.")
 
-    print(generate_song(start_word, [9, 11, 9, 9, 0, 11, 11, 9, 9, 9, 2]))
+    melody = None
+    print("Vilken melodi vill du använda?: ")
+    for i in range(len(MELODIES)):
+        print(f"{i + 1}: {list(MELODIES.keys())[i]}")
 
+    while melody is None:
+        mel = input(f"Skriv i 1-{len(MELODIES)}: ")
+        try:
+            melody = MELODIES[list(MELODIES.keys())[int(mel) - 1]]
+        except ValueError:
+            print("Not a number, try again")
+
+    print(generate_song(start_word, melody))
 
 if __name__ == "__main__":
     main()
