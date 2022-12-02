@@ -22,6 +22,9 @@ def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllab
     return new_word_index
 
 def generate_song(start_word, melody):
+    if start_word == "":
+        return
+        
     words = get_words()
 
     unique_sorted_words = sorted(list(set(words)))
