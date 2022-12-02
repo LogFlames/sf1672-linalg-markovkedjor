@@ -12,11 +12,9 @@ class Window():
 
         self.entered_phrase = tk.StringVar()
 
-        self.l1 = tk.Label(
-            self.root, text="Skriv hur du vill att sången ska börja")
+        self.l1 = tk.Label(self.root, text="Skriv hur du vill att sången ska börja")
         self.l1.pack(side="top", pady=(15, 0))
-        self.e1 = tk.Entry(
-            self.root, textvariable=self.entered_phrase, justify="center")
+        self.e1 = tk.Entry(self.root, textvariable=self.entered_phrase, justify="center")
         self.e1.pack(side="top", pady=(15, 20))
         self.t1 = tk.Text(self.root)
         self.t1.pack(side="top", pady=(15, 20))
