@@ -11,17 +11,14 @@ class Window():
         self.root.title(title)
         self.root.geometry(f"{self.width}x{self.height}")
 
-
         self.entered_phrase = tk.StringVar()
         self.selected_melody = tk.IntVar(value=random.randint(0,5))
-    
 
         self.l1 = tk.Label(self.root, font=("Arial", 18), text="Hur ska sången börja?")
         self.l1.grid(row = 0, column = 1, sticky="W", padx=10, pady=0)
         self.e1 = tk.Entry(self.root, textvariable=self.entered_phrase, justify="center")
         self.e1.grid(row = 1, column = 1, sticky="NW", padx=8)
         self.e1.bind("<Return>", self.display_song)
-
         self.l2 = tk.Label(self.root, font=("Arial", 18), text="Vilken melodi?")
         self.l2.grid(row = 3, column = 1, sticky="NW", padx=10)
         self.b1 = tk.Radiobutton(self.root, text="Katyuscha", borderwidth=0, variable=self.selected_melody, value=0,       command=self.display_song)
@@ -36,7 +33,6 @@ class Window():
         self.b5.grid(row = 8, column = 1, sticky="NW", padx=10)
         self.b6 = tk.Radiobutton(self.root, text="Du gamla, du fria", borderwidth=0, variable=self.selected_melody, value=5, command=self.display_song)
         self.b6.grid(row = 9, column = 1, sticky="NW", padx=10)
-
     
         self.t1 = tk.Text(self.root, font=("Arial", 16), highlightthickness=0, state="disabled", height=30, width=60, padx=20)
         self.t1.tag_configure("tag_name", justify="center")
