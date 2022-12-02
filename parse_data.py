@@ -5,7 +5,7 @@ from os import path
 def get_words():
     words = []
 
-    files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "_theta.txt", "delta.txt", "eta.txt", "_iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
+    files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "theta.txt", "delta.txt", "eta.txt", "_iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
 
     for file in files:
         with open(path.join("data", file), "r") as f:
