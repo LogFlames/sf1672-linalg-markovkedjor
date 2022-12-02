@@ -52,9 +52,11 @@ def build_matrix(words):
 def get_matrix(words):
     if path.exists("probability_matrix.bin"):
         with open("probability_matrix.bin", "rb") as f:
-            return np.load(f)
-    else:
-        return build_matrix(words)
+            matrix = np.load(f)
+            if len(matrix) == len(set(words)):
+                return matrix
+
+    return build_matrix(words)
 
 def get_melodies():
     pass
