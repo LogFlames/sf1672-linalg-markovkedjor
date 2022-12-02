@@ -10,26 +10,17 @@ def get_next_word(current_word_vector, matrix):
     return new_word_index
 
 def generate_song(start_word, melody):
-    
-    pass
-
-def main():
     words = get_words()
 
     unique_sorted_words = sorted(list(set(words)))
 
     probability_matrix = get_matrix(words)
 
-    while (start_word := input("What word do you want to start the song on?: ").lower()) not in unique_sorted_words:
-        print(f"The word '{start_word}' does not occur in the dataset, please try again.")
-
-    print(start_word, end=" ")
-
     current_word_vector = np.zeros(len(unique_sorted_words))
     current_word_vector[unique_sorted_words.index(start_word)] = 1
 
-    word_count = 0
-    line_number = 0
+    song = start_word + " "
+
     while True:
         next_word_index = get_next_word(
             current_word_vector, probability_matrix)
@@ -37,18 +28,22 @@ def main():
         if unique_sorted_words[next_word_index] == "slutslutslut":
             break
 
-        print(unique_sorted_words[next_word_index], end=" ")
-        word_count += 1
-        if word_count % 10 == 0:
-            line_number += 1
-            if line_number % 4 == 0:
-                print()
-            print()
+        song += unique_sorted_words[next_word_index] + " "
 
         current_word_vector = np.zeros(len(unique_sorted_words))
         current_word_vector[next_word_index] = 1
 
-    print()
+    return song
+
+def main():
+    words = get_words()
+
+    unique_sorted_words = sorted(list(set(words)))
+
+    while (start_word := input("What word do you want to start the song on?: ").lower()) not in unique_sorted_words:
+        print(f"The word '{start_word}' does not occur in the dataset, please try again.")
+
+    print(generate_song(start_word, None))
 
 
 if __name__ == "__main__":

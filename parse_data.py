@@ -56,6 +56,9 @@ def get_matrix(words):
     else:
         return build_matrix(words)
 
+def get_melodies():
+    pass
+
 if __name__ == "__main__":
     words = get_words()
     mat = get_matrix(words)
