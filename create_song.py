@@ -1,7 +1,7 @@
 import numpy as np
 from parse_data import get_words, get_matrix
 from word import Word
-from melodies import MELODIES
+from melodies import MELODIES, pick_melody
 
 
 def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables):
@@ -76,7 +76,7 @@ def main():
     while melody is None:
         mel = input(f"Skriv i 1-{len(MELODIES)}: ")
         try:
-            melody = MELODIES[list(MELODIES.keys())[int(mel) - 1]]
+            melody = melodies.pick_melody(int(mel) - 1)
         except ValueError:
             print("Not a number, try again")
 
