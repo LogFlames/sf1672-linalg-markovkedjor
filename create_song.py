@@ -49,7 +49,7 @@ def generate_song(start_word, melody, totally_random = False):
     line = 0
     while True:
         next_word_index = get_next_word(
-            current_word_vector, probability_matrix, unique_sorted_words_words, melody[line])
+            current_word_vector, probability_matrix, unique_sorted_words_words, melody[line], totally_random)
 
         song += unique_sorted_words[next_word_index] + " "
         melody[line] -= unique_sorted_words_words[next_word_index].syllables
