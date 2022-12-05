@@ -1,11 +1,14 @@
 import numpy as np
 from os import path
 
+PUNCTUATION = ".!?"
+SENTENCE_CHANGE_PROBABILITY_MULTIPLIER = 0.8
+
 
 def get_words():
     words = []
 
-    files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "theta.txt", "delta.txt", "eta.txt", "_iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
+    files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "theta.txt", "delta.txt", "eta.txt", "iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
 
     for file in files:
         with open(path.join("data", file), "r") as f:
@@ -14,7 +17,7 @@ def get_words():
                     continue
 
                 # Only keep the allowed characters
-                cleaned_line = "".join([c for c in line.strip().lower() if c.isalpha() or c == " "])
+                cleaned_line = "".join([c for c in line.strip().lower() if c.isalpha() or c == " " or c in PUNCTUATION])
 
                 words.extend(cleaned_line.split())
 
@@ -22,7 +25,7 @@ def get_words():
     return words
 
 def build_matrix(words):
-    unique_sorted_words = sorted(list(set(words)))
+    unique_sorted_words = sorted(list(set(words) - {p for p in PUNCTUATION}))
     word_count = len(unique_sorted_words)
 
     print(unique_sorted_words)
@@ -32,9 +35,24 @@ def build_matrix(words):
     occurance_matrix = np.zeros((word_count, word_count))
 
     for keyword in unique_sorted_words:
-        for i in range(len(words) - 1):
-            if words[i] == keyword:
-                occurance_matrix[reverse_word_index_lookup[words[i + 1]], reverse_word_index_lookup[keyword]] += 1
+        for i in range(1, len(words)):
+            if words[i] in PUNCTUATION: 
+                continue
+
+            offset = -1
+            mult = 1
+
+            while words[i + offset] in PUNCTUATION:
+                offset -= 1
+                if i + offset < 0:
+                    break
+                mult *= SENTENCE_CHANGE_PROBABILITY_MULTIPLIER
+
+            if i + offset < 0:
+                continue
+
+            if words[i + offset] == keyword:
+                occurance_matrix[reverse_word_index_lookup[words[i]], reverse_word_index_lookup[keyword]] += mult
 
     prob_matrix = np.zeros((word_count, word_count))
     for col in range(word_count):
