@@ -72,7 +72,7 @@ def get_matrix(words, unique_sorted_words):
     if path.exists("probability_matrix.bin"):
         with open("probability_matrix.bin", "rb") as f:
             matrix = np.load(f)
-            if len(matrix) == len(set(words)):
+            if len(matrix) == len(unique_sorted_words):
                 return matrix
 
     return build_matrix(words, unique_sorted_words)

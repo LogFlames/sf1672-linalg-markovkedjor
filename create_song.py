@@ -33,12 +33,12 @@ def generate_song(start_word, melody, totally_random = False):
 
     melody = melody[:]
         
-    words = get_words()
+    words, unique_sorted_words = get_words()
 
     unique_sorted_words = sorted(list(set(words)))
     unique_sorted_words_words = Word.convert_list(unique_sorted_words)
 
-    probability_matrix = get_matrix(words)
+    probability_matrix = get_matrix(words, unique_sorted_words)
 
     current_word_vector = np.zeros(len(unique_sorted_words))
     current_word_vector[unique_sorted_words.index(start_word)] = 1
