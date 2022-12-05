@@ -21,11 +21,10 @@ def get_words():
 
                 words.extend(cleaned_line.split())
 
-    words = list(filter(lambda x: x != "slutslutslut", words))
-    return words
+    unique_sorted_words = sorted(list(set(words) - {p for p in PUNCTUATION} - {"slutslutslut"}))
+    return words, unique_sorted_words
 
-def build_matrix(words):
-    unique_sorted_words = sorted(list(set(words) - {p for p in PUNCTUATION}))
+def build_matrix(words, unique_sorted_words):
     word_count = len(unique_sorted_words)
 
     print(unique_sorted_words)
@@ -34,25 +33,26 @@ def build_matrix(words):
     reverse_word_index_lookup = {word: i for i, word in enumerate(unique_sorted_words)}
     occurance_matrix = np.zeros((word_count, word_count))
 
-    for keyword in unique_sorted_words:
-        for i in range(1, len(words)):
-            if words[i] in PUNCTUATION: 
-                continue
+    for i in range(1, len(words)):
+        if words[i] in PUNCTUATION or words[i] == "slutslutslut": 
+            continue
 
-            offset = -1
-            mult = 1
+        offset = -1
+        mult = 1
 
-            while words[i + offset] in PUNCTUATION:
-                offset -= 1
-                if i + offset < 0:
-                    break
-                mult *= SENTENCE_CHANGE_PROBABILITY_MULTIPLIER
-
+        while words[i + offset] in PUNCTUATION:
+            offset -= 1
             if i + offset < 0:
-                continue
+                break
+            mult *= SENTENCE_CHANGE_PROBABILITY_MULTIPLIER
 
-            if words[i + offset] == keyword:
-                occurance_matrix[reverse_word_index_lookup[words[i]], reverse_word_index_lookup[keyword]] += mult
+        if i + offset < 0:
+            continue
+
+        if words[i + offset] == "slutslutslut":
+            continue
+
+        occurance_matrix[reverse_word_index_lookup[words[i]], reverse_word_index_lookup[words[i + offset]]] += mult
 
     prob_matrix = np.zeros((word_count, word_count))
     for col in range(word_count):
@@ -67,19 +67,18 @@ def build_matrix(words):
 
     return prob_matrix
 
-def get_matrix(words):
+
+def get_matrix(words, unique_sorted_words):
     if path.exists("probability_matrix.bin"):
         with open("probability_matrix.bin", "rb") as f:
             matrix = np.load(f)
             if len(matrix) == len(set(words)):
                 return matrix
 
-    return build_matrix(words)
+    return build_matrix(words, unique_sorted_words)
 
-def get_melodies():
-    pass
 
 if __name__ == "__main__":
-    words = get_words()
-    mat = get_matrix(words)
+    words, unique_sorted_words = get_words()
+    mat = get_matrix(words, unique_sorted_words)
     print(mat)
