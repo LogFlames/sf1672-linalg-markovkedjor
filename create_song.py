@@ -31,8 +31,6 @@ def generate_song(start_word, melody, totally_random = False, keep_word_probabil
     melody = melody[:]
         
     words, unique_sorted_words = get_words()
-
-    unique_sorted_words = sorted(list(set(words)))
     unique_sorted_words_words = Word.convert_list(unique_sorted_words)
 
     probability_matrix = get_matrix(words, unique_sorted_words)

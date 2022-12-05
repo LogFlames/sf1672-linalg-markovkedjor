@@ -1,7 +1,7 @@
 import tkinter as tk
 import random
 from create_song import generate_song
-from parse_data import get_words
+from parse_data import *
 import melodies
 #import playsound
 
