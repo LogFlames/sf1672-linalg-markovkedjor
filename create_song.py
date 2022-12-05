@@ -6,7 +6,7 @@ from word import Word
 import melodies
 
 
-def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables, totally_random = False):
+def get_next_word_vector(current_word_vector, matrix, unique_sorted_words_words, syllables, totally_random = False):
     if totally_random:
         new_word_vector = np.full(len(current_word_vector), 1 / len(current_word_vector))
     else:
@@ -22,12 +22,9 @@ def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllab
     if norm != 0:
         new_word_vector = new_word_vector / norm
 
-    new_word_index = np.random.choice(
-        range(len(new_word_vector)), 1, p=new_word_vector)[0]
+    return new_word_vector
 
-    return new_word_index
-
-def generate_song(start_word, melody, totally_random = False):
+def generate_song(start_word, melody, totally_random = False, keep_word_probability_vector = False):
     if start_word == "":
         return
 
@@ -48,8 +45,11 @@ def generate_song(start_word, melody, totally_random = False):
 
     line = 0
     while True:
-        next_word_index = get_next_word(
+        next_word_vector = get_next_word_vector(
             current_word_vector, probability_matrix, unique_sorted_words_words, melody[line], totally_random)
+
+        next_word_index = np.random.choice(
+            range(len(next_word_vector)), 1, p=next_word_vector)[0]
 
         song += unique_sorted_words[next_word_index] + " "
         melody[line] -= unique_sorted_words_words[next_word_index].syllables
@@ -60,8 +60,11 @@ def generate_song(start_word, melody, totally_random = False):
         if line >= len(melody):
             break
 
-        current_word_vector = np.zeros(len(unique_sorted_words))
-        current_word_vector[next_word_index] = 1
+        if keep_word_probability_vector:
+            current_word_vector = next_word_vector
+        else:
+            current_word_vector = np.zeros(len(unique_sorted_words))
+            current_word_vector[next_word_index] = 1
 
     return song
 

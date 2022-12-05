@@ -53,7 +53,8 @@ class Window():
                 generate_song(
                     self.entered_phrase.get(), 
                     melodies.pick_melody(self.selected_melody.get()), 
-                    self.random_mode.get() == 1)
+                    totally_random = self.random_mode.get() == 1,
+                    keep_word_probability_vector = True)
                     )
         else:
             self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
