@@ -13,6 +13,7 @@ class Window():
 
         self.entered_phrase = tk.StringVar()
         self.selected_melody = tk.IntVar(value=random.randint(0,5))
+        self.random_mode = tk.IntVar(value=0)
 
         self.l1 = tk.Label(self.root, font=("Arial", 18), text="Hur ska sången börja?")
         self.l1.grid(row = 0, column = 1, sticky="W", padx=10, pady=0)
@@ -33,16 +34,20 @@ class Window():
         self.b5.grid(row = 8, column = 1, sticky="NW", padx=10)
         self.b6 = tk.Radiobutton(self.root, text="Du gamla, du fria", borderwidth=0, variable=self.selected_melody, value=5, command=self.display_song)
         self.b6.grid(row = 9, column = 1, sticky="NW", padx=10)
-    
+        self.c1 = tk.Checkbutton(self.root, text="Random Mode", variable=self.random_mode, onvalue=1, offvalue=0)
+        self.c1.grid(row = 11, column = 1, sticky="NW", padx=10)
+
         self.t1 = tk.Text(self.root, font=("Arial", 16), highlightthickness=0, state="disabled", height=30, width=60, padx=20)
         self.t1.tag_configure("tag_name", justify="center")
         self.t1.grid(row = 0, column = 0, rowspan = 12, pady=20, padx=20)
 
-    def display_song(self, _=0):
+
+    def display_song(self, *args):
         self.t1.config(state="normal")
         self.t1.delete("1.0","end")
         try:
-            self.t1.insert(tk.INSERT, generate_song(self.entered_phrase.get(), melodies.pick_melody(self.selected_melody.get())))
+            self.t1.insert(tk.INSERT, generate_song(self.entered_phrase.get(), melodies.pick_melody(self.selected_melody.get()), self.random_mode.get() == 1))
+            print(self.random_mode.get() == 1)
         except ValueError:
             self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
         self.t1.tag_add("tag_name", "1.0", "end")
