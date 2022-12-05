@@ -1,11 +1,16 @@
 import numpy as np
+import random
+
 from parse_data import get_words, get_matrix
 from word import Word
 import melodies
 
 
-def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables):
-    new_word_vector = np.matmul(matrix, current_word_vector)
+def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables, totally_random = False):
+    if totally_random:
+        new_word_vector = np.matmul(matrix, current_word_vector)
+    else:
+        new_word_vector = np.full(len(current_word_vector), 1 / len(current_word_vector))
 
     for i in range(len(new_word_vector)):
         if unique_sorted_words_words[i].syllables > syllables:
@@ -22,7 +27,7 @@ def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllab
 
     return new_word_index
 
-def generate_song(start_word, melody):
+def generate_song(start_word, melody, totally_random = False):
     if start_word == "":
         return
 
