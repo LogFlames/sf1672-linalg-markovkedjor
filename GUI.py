@@ -1,11 +1,13 @@
 import tkinter as tk
 import random
 from create_song import generate_song
+from parse_data import get_words
 import melodies
 #import playsound
 
 class Window():
     def __init__(self, width, height, title):
+        _, self.unique_sorted_words = get_words()
         self.width = width
         self.height = height
         self.root = tk.Tk()
@@ -46,10 +48,15 @@ class Window():
     def display_song(self, *args):
         self.t1.config(state="normal")
         self.t1.delete("1.0","end")
-        #try:
-        self.t1.insert(tk.INSERT, generate_song(self.entered_phrase.get(), melodies.pick_melody(self.selected_melody.get()), self.random_mode.get() == 1))
-        #except ValueError:
-        #    self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
+        if self.entered_phrase.get() in self.unique_sorted_words:
+            self.t1.insert(tk.INSERT, 
+                generate_song(
+                    self.entered_phrase.get(), 
+                    melodies.pick_melody(self.selected_melody.get()), 
+                    self.random_mode.get() == 1)
+                    )
+        else:
+            self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
         self.t1.tag_add("tag_name", "1.0", "end")
         self.t1.config(state="disabled")
 
