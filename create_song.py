@@ -8,9 +8,9 @@ import melodies
 
 def get_next_word(current_word_vector, matrix, unique_sorted_words_words, syllables, totally_random = False):
     if totally_random:
-        new_word_vector = np.matmul(matrix, current_word_vector)
-    else:
         new_word_vector = np.full(len(current_word_vector), 1 / len(current_word_vector))
+    else:
+        new_word_vector = np.matmul(matrix, current_word_vector)
 
     for i in range(len(new_word_vector)):
         if unique_sorted_words_words[i].syllables > syllables:
