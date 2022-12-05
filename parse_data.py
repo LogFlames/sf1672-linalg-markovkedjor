@@ -55,13 +55,15 @@ def build_matrix(words, unique_sorted_words):
         occurance_matrix[reverse_word_index_lookup[words[i]], reverse_word_index_lookup[words[i + offset]]] += mult
 
     prob_matrix = np.zeros((word_count, word_count))
+    a = 0
     for col in range(word_count):
         col_sum = sum(occurance_matrix[:,col])
         if col_sum == 0:
+            prob_matrix[:,col] = np.ones(word_count) / word_count
             continue
 
         prob_matrix[:,col] = occurance_matrix[:,col] / col_sum
-
+    print(a)
     with open("probability_matrix.bin", "wb+") as f:
         np.save(f, prob_matrix)
 

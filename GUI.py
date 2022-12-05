@@ -2,6 +2,7 @@ import tkinter as tk
 import random
 from create_song import generate_song
 import melodies
+#import playsound
 
 class Window():
     def __init__(self, width, height, title):
@@ -45,13 +46,15 @@ class Window():
     def display_song(self, *args):
         self.t1.config(state="normal")
         self.t1.delete("1.0","end")
-        try:
-            self.t1.insert(tk.INSERT, generate_song(self.entered_phrase.get(), melodies.pick_melody(self.selected_melody.get()), self.random_mode.get() == 1))
-            print(self.random_mode.get() == 1)
-        except ValueError:
-            self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
+        #try:
+        self.t1.insert(tk.INSERT, generate_song(self.entered_phrase.get(), melodies.pick_melody(self.selected_melody.get()), self.random_mode.get() == 1))
+        #except ValueError:
+        #    self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
         self.t1.tag_add("tag_name", "1.0", "end")
         self.t1.config(state="disabled")
+
+    def play(self):
+        playsound.playsound('1.mp3')
 
 
 def main():
