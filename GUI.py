@@ -1,7 +1,7 @@
 import tkinter as tk
 import random
 from create_song import generate_song
-from parse_data import get_words
+from parse_data import *
 import melodies
 #import playsound
 #import pyttsx
@@ -58,7 +58,8 @@ class Window():
                 generate_song(
                     self.entered_phrase.get(), 
                     melodies.pick_melody(self.selected_melody.get()), 
-                    self.random_mode.get() == 1)
+                    totally_random = self.random_mode.get() == 1,
+                    keep_word_probability_vector = False)
                     )
         else:
             self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
