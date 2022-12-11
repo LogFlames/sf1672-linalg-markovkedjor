@@ -46,10 +46,14 @@ def generate_song(start_word, melody, totally_random = False, keep_word_probabil
     current_word_vector[current_word_index] = 1
 
     song = start_word + " "
+    like = 0
     melody[0] -= Word.count_syllables(start_word)
+    if melody[line] <= 0:
+        song += "\n"
+        line += 1
 
-    line = 0
-    while True:
+
+    while line < len(melody):
         next_word_vector = get_next_word_vector(
             probability_matrix, 
             unique_sorted_words_words, 
@@ -66,9 +70,6 @@ def generate_song(start_word, melody, totally_random = False, keep_word_probabil
         while line < len(melody) and melody[line] <= 0:
             song += "\n"
             line += 1
-
-        if line >= len(melody):
-            break
 
         if keep_word_probability_vector:
             current_word_vector = next_word_vector
