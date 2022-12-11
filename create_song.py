@@ -46,7 +46,7 @@ def generate_song(start_word, melody, totally_random = False, keep_word_probabil
     current_word_vector[current_word_index] = 1
 
     song = start_word + " "
-    like = 0
+    line = 0
     melody[0] -= Word.count_syllables(start_word)
     if melody[line] <= 0:
         song += "\n"
