@@ -11,5 +11,7 @@ class Word:
 
     @staticmethod
     def count_syllables(word):
-        return sum([word.count(vowel) for vowel in vowels])
-
+        if sum([word.count(vowel) for vowel in vowels]) > 0:
+            return sum([word.count(vowel) for vowel in vowels])
+        else:
+            return len(word)
