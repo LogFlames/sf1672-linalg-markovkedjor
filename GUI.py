@@ -56,13 +56,12 @@ class Window():
         self.t1.config(state="normal")
         self.t1.delete("1.0","end")
         if self.entered_phrase.get() in self.unique_sorted_words:
-            print(self.markov_mode.get())
             self.t1.insert(tk.INSERT, 
                 generate_song(
                     self.entered_phrase.get(), 
                     melodies.pick_melody(self.selected_melody.get()), 
                     totally_random = self.random_mode.get() == 1,
-                    keep_word_probability_vector = False)
+                    keep_word_probability_vector = self.markov_mode.get())
                     )
         else:
             self.t1.insert(tk.INSERT, f"Ordet {self.entered_phrase.get()} finns ej i ordlistan")
