@@ -39,6 +39,9 @@ class Window():
         self.b5.grid(row = 8, column = 1, sticky="NW", padx=10)
         self.b6 = tk.Radiobutton(self.root, text="Du gamla, du fria", borderwidth=0, variable=self.selected_melody, value=5, command=self.display_song)
         self.b6.grid(row = 9, column = 1, sticky="NW", padx=10)
+        self.b7 = tk.Radiobutton(self.root, text="Ingen melodi", borderwidth=0, variable=self.selected_melody, value=6, command=self.display_song)
+        self.b7.grid(row = 10, column = 1, sticky="NW", padx=10)
+
         self.c1 = tk.Checkbutton(self.root, text="Random", variable=self.random_mode, onvalue=1, offvalue=0)
         self.c1.grid(row = 11, column = 1, sticky="NW", padx=10)
         self.c2 = tk.Checkbutton(self.root, text="Markov v2", variable=self.markov_mode, onvalue=1, offvalue=0)

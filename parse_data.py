@@ -11,7 +11,7 @@ def get_words():
     files = ["alfa.txt", "beta.txt", "epsilon.txt", "gamma.txt", "kappa.txt", "my.txt", "omikron.txt", "theta.txt", "delta.txt", "eta.txt", "iota.txt", "lambda.txt", "ny.txt", "sigma.txt", "zeta.txt"]
 
     for file in files:
-        with open(path.join("data", file), "r") as f:
+        with open(path.join("data", file), "r", encoding="utf-8") as f:
             for line in f:
                 if line.startswith("##"):
                     continue
